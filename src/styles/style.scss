@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Bevan');
+
 
 // $primary-color: fuchsia;
 // $secondary-color: orange;
 // $hover-color: #F6F6F6;
 
 /* RGB */
-$primary-color: rgba(89, 91, 86, 1);
-$secondary-color: rgba(220, 90, 90, 1);
+// $primary-color: rgba(89, 91, 86, 1);
+// $secondary-color: rgba(220, 90, 90, 1);
 // $1-color: rgba(225, 215, 191, 1);
 
 // $color4: rgba(91, 192, 190, 1);
@@ -18,43 +18,43 @@ $secondary-color: rgba(220, 90, 90, 1);
 	font-family: Helvetica, Arial, sans-serif;
 	box-sizing: border-box;
 }
-header {
-	text-align: center;
-	h1 {
-	font-family: 'Bevan', Helvetica, Arial, sans-serif;
-	font-weight: normal;
-	font-size: 36px;
-	text-align: center;
-	color: darken($primary-color,20);
-	}
-	input[type="text"]{
-		font-size: 18px;
-		padding: .5rem (.5 * 2rem);
-	}
-}
+// header {
+// 	text-align: center;
+// 	h1 {
+// 	font-family: 'Bevan', Helvetica, Arial, sans-serif;
+// 	font-weight: normal;
+// 	font-size: 36px;
+// 	text-align: center;
+// 	color: darken($primary-color,20);
+// 	}
+// 	input[type="text"]{
+// 		font-size: 18px;
+// 		padding: .5rem (.5 * 2rem);
+// 	}
+// }
 
-h5 {
-	text-transform: uppercase;
-	color: $primary-color;
-}
+// h5 {
+// 	text-transform: uppercase;
+// 	color: $primary-color;
+// }
 
-a, a:link, a:hover, a:visited {
-	text-decoration: none;
-}
-a:hover, a h1:hover {
-	color: $secondary-color;
-}
-
-
+// a, a:link, a:hover, a:visited {
+// 	text-decoration: none;
+// }
+// a:hover, a h1:hover {
+// 	color: $secondary-color;
+// }
 
 
-.article-container {
-	.article {
-		cursor: pointer;
-		padding: 0.5rem 0.5rem 1rem;
-		border-bottom: 1px solid #CCC;
-		&:hover {
-			background-color: lighten($secondary-color, 35);
-		}
-	}
-}
+
+
+// .article-container {
+// 	.article {
+// 		cursor: pointer;
+// 		padding: 0.5rem 0.5rem 1rem;
+// 		border-bottom: 1px solid #CCC;
+// 		&:hover {
+// 			background-color: lighten($secondary-color, 35);
+// 		}
+// 	}
+// }

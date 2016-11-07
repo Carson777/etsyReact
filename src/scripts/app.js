@@ -4,13 +4,19 @@ import Backbone from 'backbone'
 import ListView from './views/listView'
 
 
+
 var app = function() {
 
-	var ArticleCollection = Backbone.Collection.extend({
-		url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
-		_key: "a30a58a6e722476eb77532b42ca43c9b",
+	var DetailModel = Backbone.Model.extend({
+		url: "https://openapi.etsy.com/v2/listings/active.js?",
+		_key: "6f60tk5ueotsm8pbgzucea4h"
+	})
+
+	var ItemCollection = Backbone.Collection.extend({
+		url: "https://openapi.etsy.com/v2/listings/active.js?",
+		_key: "6f60tk5ueotsm8pbgzucea4h",
 		parse: function(rawResponse){
-			var  parsedResponse = rawResponse.response.docs
+			var  parsedResponse = rawResponse.results
 			return parsedResponse
 		}
 	})
@@ -22,26 +28,45 @@ var app = function() {
 			'*default': 'handleDefault'
 		},
 		handleHome: function(){
-			var articleCollection = new ArticleCollection()
-			var promise = articleCollection.fetch({
+			var itemCollection = new ItemCollection()
+			var promise = itemCollection.fetch({
+				dataType: 'jsonp',
 				data:{
-					'apikey': articleCollection._key
+					'api_key': itemCollection._key,
+					'limit': '100',
+					'includes': 'Images'
+
 				}
 			})
-			console.log(articleCollection)
+			console.log(itemCollection)
 			promise.then(
 				function(){
-					ReactDOM.render(<ListView collection={articleCollection} />, document.querySelector('.container'))
+					console.log(itemCollection)
+					ReactDOM.render(<ListView collection={itemCollection} />, document.querySelector('.container'))
 			})
-
-
 		},
 		handleSearch: function(){
 			console.log("Handling Search")
 		},
 		handleDetail: function(){
 			console.log("Handling Detail")
-		},
+			var detailModel = new DetailModel()
+			var promise = detailModel.fetch({
+				dataType: 'jsonp',
+				data:{
+					'api_key': detailModel._key,
+					'includes': 'Images',
+					'listings': id
+				}
+			})
+			console.log(detailModel)
+			promise.then(
+				function(){
+					console.log(detailModel)
+					ReactDOM.render(<DetailView model={detailModel} />, document.querySelector('.container'))
+			})
+		}, 
+		//listings/:463400335
 		handleDefault: function(){
 			location.hash = "home"
 		},
